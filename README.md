@@ -29,4 +29,8 @@ You will get to a screenshot like this after you choose some default options aft
 ## Download RStudio link:
 https://posit.co/download/rstudio-desktop
 
+Go to this website and click the link on the right, 2. You will get an executible that after downloading will eventually get you a screen like this. Stick with the default options. 
+
 ![My image](pictures/rstudio_folder_ss.png)
+
+After this search RStudio on your computer and open it. The "R_Tutorial" will guide you from there.
