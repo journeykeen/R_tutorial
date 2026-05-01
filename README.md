@@ -8,13 +8,22 @@ Follow the instructions in order. I provided some screenshots. If there is not a
 https://mirror.its.umich.edu/cran/
 
 Here is what the link looks like. Choose the appropriate link for your computer.
-![My image](site_ss_annotate)
+![My image](site_ss_annotate.png)
 
 # Windows people:
 Choose "base" and then click "Download R-4.6.0 for Windows." This second click will download the executable, which can be in any folder.
 
 # Mac people:
 You will need to click based upon your computer. Here is where you need to look:
+![My image](r_mac_ss_annotate.png)
+------------ Fill-in here ---------------
+
+# Lixux people:
+------------ Fill-in here ---------------
+
+# When downloading:
+You will get to a screenshot like this after you choose some default options after clicking "Next" a few times:
+![My image](r_folder_ss.png)
 
 
 ## Download RStudio link:
