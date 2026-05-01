@@ -6,3 +6,5 @@ https://mirror.its.umich.edu/cran/
 
 ## Download RStudio link:
 https://posit.co/download/rstudio-desktop
+
+![My image](pictures/rstudio_folder_ss.png)
