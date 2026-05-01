@@ -5,7 +5,7 @@ Written for Fed MPLS BEE Program. Below is a quick tutorial on how to download R
 Follow the instructions in order. I provided some screenshots. If there is not a screenshot for something, then stick to default settings. The first file you download for both R and RStudio is an "executible" and can be in any folder. After you finish the downloads you can delete them. For the folders for actually holding R and RStudio you will want to use the default path the downloads give you, your program files.
 
 ## Download R link:
-https://mirror.its.umich.edu/cran/
+[CRAN Mirror (Download R)](https://mirror.its.umich.edu/cran/)
 
 Here is what the link looks like. Choose the appropriate link for your computer.
 ![My image](pictures/site_ss_annotate.png)
