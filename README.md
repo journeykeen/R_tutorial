@@ -1,6 +1,6 @@
 # README for the IDDA BEE Program
 
-This file describes the structure of the project.
+This file describes the structure of the project. It is the first thing you should read.
 
 ## Folders
 
