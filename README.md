@@ -11,7 +11,7 @@ This file describes the structure of the project. It is the first thing you shou
 ### How to download data and codes.
 Click the folder you are downloading from, for example `/data/`. Then click on the file you are downloading, for example `percentiles_combinded.zip`. At the top right of the screen will be the download icon, as is shown:
 ![My image](pictures/git_download_ss.png)
-<img src="pictures/git_download_ss.png" alt="My image" width="800">
+<img src="pictures/git_download_ss.png" alt="My image" width="100%">
 
 ## Files
 
