@@ -187,11 +187,18 @@ There is a lot of literature on how to stay organized here. It is extremely impo
 At some point you will have to do this. I do not think you should worry about it now, if this is your first time using programming or statistical software. The best way to learn this is probably the hard way: Burn your finger, say mean things, and figure out fire is hot. Poorly label a bunch of files, put dates onto files, do not comment on what your code is doing. Erase your work from your mind, come back a week later, and pick-up where you left off. Your finger is now burnt. So, waste an hour (with mean words) trying to find where and what you were working on. You will re-organize a bunch of code in the process of doing this. You will then break the code because you forgot what was supposed to be ran first and other things that part of the code requires to run. And then you will learn fire is hot and how to use a rag when grabbing a hot pan: You will learn how to organize code, your projects, and how to record your work and edits thereof. But not now. For now just focus on writing those first few basic scripts.
 
 \subsection{General}
+
+```{r, echo=F}
+"
 Not sure what else to include here. Probably need something about libraries/packages. Reading and writing data via csvs (which is all I will cover) is below. I could add a subsection on general formatting and standard syntax usage (i.e. my own). 
 
 Edit: I should cover folder structure and directories.
 
 Edit: I should cover basic string manipulation (spamming \texttt{paste0}). No \texttt{sprintf} in this tutorial.
+"
+```
+
+
 
 \section{Data Tables}
 You have already seen examples of collecting vectors, naming them, and putting them in a "table" in R. Once you view it, by clicking on it in the environment section, it looks a lot like an Excel sheet. Here you will see the huge improvements to working with R. You can edit existing variables, create new ones, and in general manipulate your data table much easier in R than Excel. The degree to which this is easier scales with the difficulty of the problem you are facing. 
@@ -205,12 +212,16 @@ Say you have the csv in your computer with the file name
 \]
 The ".csv" at the end tells us it is a csv. We will load-in ("read") files of this type with \texttt{fread}, like
 ```{r fread_example, eval=FALSE}
-dir = "C:/Users/person/Desktop/folder_1/folder_2/data_folder/file.csv"
-dt = fread(paste0(dir, "file.csv"))
+dir = "C:/Users/person/Desktop/folder_1/folder_2/data/"
+dt = fread(paste0(dir, "example_file.csv"))
 ```
-\noindent We now have the data table \texttt{dt} in our environment. Say we did a bunch of manipulation to \texttt{dt} and end-up with the table \texttt{dt\_manip}. We want to save it ("write" it) to the computer in the same directory, \texttt{dir}. We will use \texttt{fwrite}:
+\noindent You need to put your actual directory you stored the data from GitHub here, not my fake example. We now have the data table \texttt{dt} in our environment. Say we did a bunch of manipulation to \texttt{dt} and end-up with the table \texttt{dt\_manip}. We would want to save it ("write" it) to the computer in the same directory, \texttt{dir}. We will use \texttt{fwrite}:
 ```{r fwrite_example, eval=FALSE}
-output_file = "file_manipulated.csv"
+## Trivial manipulation. You do not need to understand what it means:
+dt_manip = dt[group=="Female", .(category, average)]
+
+
+output_file = "example_file_manipulated.csv"
 fwrite(dt_manip, paste0(dir, output_file))
 ```
 
