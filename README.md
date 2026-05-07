@@ -13,7 +13,7 @@ You should create your own folder for this program (maybe `/BEE/`) with a subfol
 ### How to download data and codes.
 Click the folder you are downloading from, for example `/data/`. Then click on the file you are downloading, for example `percentiles_combinded.zip`. At the top right of the screen will be the download icon, as is shown:
 ![My image](pictures/git_download_ss.png)
-This file is "zipped", so you need to unzip it before using. Right-click it where you saved it, preferably in your `/data/` folder in the BEE folder. You will then select `Extract All...` or something like that. Put it in the same folder.
+Save it in your own personal `/data/` subfolder in your BEE folder. This file is "zipped", so you need to unzip it before using. Right-click it the file after saving and then select `Extract All...` or something like that. Put the extracted version in the same folder.
 
 ## Files
 
