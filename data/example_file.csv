@@ -1,0 +1,17 @@
+category,group,average,year,gender
+Gender,Male,10,2010,Male
+Gender,Female,13,2010,Female
+Gender,Male,11,2011,Male
+Gender,Female,13,2011,Female
+Gender,Male,12,2012,Male
+Gender,Female,14,2012,Female
+Race,White,14,2010,
+Race,Black,14,2010,
+Race,Hispanic,14,2010,
+Race,White,15,2011,
+Race,Black,14,2011,
+Race,Hispanic,13,2011,
+Race,White,14,2012,
+Race,Black,16,2012,
+Race,Hispanic,17,2012,
+Age,23,10,2010,
