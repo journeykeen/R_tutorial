@@ -8,7 +8,7 @@ Follow the instructions in order. I provided some screenshots. If there is not a
 [Download R Site (open it in a new tab)](https://mirror.its.umich.edu/cran/)
 
 Here is what the link looks like. Choose the appropriate link for your computer.
-![My image](pictures/site_ss_annotate.png)
+![My image](pictures/r_site_ss_annotate.png)
 
 # Windows people:
 Choose "base" and then click "Download R-4.6.0 for Windows." This second click will download the executable, which can be in any folder.
