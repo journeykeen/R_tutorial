@@ -57,11 +57,14 @@ When you have loaded-in data you can click the tabs between the programs and dat
 knitr::include_graphics("pictures/example_data.png")
 ```
 
+# Programs
 The "programs" section of Rstudio is where the programs can be viewed and edited and where data can be viewed. Unlike in Excel, data cannot be changed by clicking on the data and typing anything: It must be changed by an actual program (or in the "console" section, but ignore that for now). The R text earlier was a quick example. 
 
+# Environment
 The "environment" section shows which variables and tables you have created (and so are "in memory"). You can think of it as R keeping a log of the work you have done so you know what is loaded. In the annotated example it is empty. To view a data table you can just click on it and Rstudio will put it in as a tab in the programs section. You can also view data in the environment via the "console" section.
 
-The console section is how you run code one line at a time, rather than part of a programming script in the programs section. This is useful when you might want intermediate code that is not to be saved to a program/script. For example, you might not want to save `x*y` to the environment or your larger project, but while coding you want to see what it looks like real quick. It is also where a lot of output goes, at least for our purposes here. In the earlier program we saved the variable `z=x+y` to our environment, but if we just wrote `x+y`, which does not save the value of x plus y to a variable but just computes it, then the output will be printed to the console rather than being saved to the environment as a variable, `z`. Here is what the console looks like if we created `x` and `y` in the console and then just wanted to quickly look at the value of `x+y`:
+# Console
+The "console" section is how you run code one line at a time, rather than part of a programming script in the programs section. This is useful when you might want intermediate code that is not to be saved to a program/script. For example, you might not want to save `x*y` to the environment or your larger project, but while coding you want to see what it looks like real quick. It is also where a lot of output goes, at least for our purposes here. In the earlier program we saved the variable `z=x+y` to our environment, but if we just wrote `x+y`, which does not save the value of x plus y to a variable but just computes it, then the output will be printed to the console rather than being saved to the environment as a variable, `z`. Here is what the console looks like if we created `x` and `y` in the console and then just wanted to quickly look at the value of `x+y`:
 
 ```{r, echo=FALSE}
 cat("[1] 11")
