@@ -232,7 +232,14 @@ We'll finish off with saving your plots and troubleshooting tips.
 
 ### Prerequisites
 
-This chapter focuses on ggplot2, one of the core packages in the tidyverse.
+This chapter focuses on ggplot2, one of the core packages in the tidyverse. You'll first need to install the tidyverse. 
+
+```{r}
+#| eval: false
+install.packages("tidyverse")
+
+```
+
 To access the datasets, help pages, and functions used in this chapter, load the tidyverse by running:
 
 ```{r}
@@ -246,29 +253,20 @@ It also tells you which functions from the tidyverse conflict with functions in 
 [^data-visualize-1]: You can eliminate that message and force conflict resolution to happen on demand by using the conflicted package, which becomes more important as you load more packages.
     You can learn more about conflicted at <https://conflicted.r-lib.org>.
 
-If you run this code and get the error message `there is no package called 'tidyverse'`, you'll need to first install it, then run `library()` once again.
 
-```{r}
-#| eval: false
-install.packages("tidyverse")
-library(tidyverse)
-```
+You only need to install a package once, but you need to load it by running `library(package_name_here)` every time you start a new session.
 
-You only need to install a package once, but you need to load it every time you start a new session.
-
-In addition to tidyverse, we will also use the **palmerpenguins** package, which includes the `penguins` dataset containing body measurements for penguins on three islands in the Palmer Archipelago, and the ggthemes package, which offers a colorblind safe color palette.
-
-```{r}
-library(palmerpenguins)
-library(ggthemes)
-```
-
-Similar to the tidyverse package, you may need to install these packages.
+In addition to tidyverse, we will also use the **palmerpenguins** package, which includes the `penguins` dataset containing body measurements for penguins on three islands in the Palmer Archipelago, and the ggthemes package, which offers a colorblind safe color palette. Similar to the tidyverse package, if you have never installed these packages before, you'll first have to install them:
 
 ```{r}
 #| eval: false
 install.packages("palmerpenguins")
 install.packages("ggthemes")
+```
+
+Before loading them: 
+
+```{r}
 library(palmerpenguins)
 library(ggthemes)
 ```
@@ -372,7 +370,7 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
 
 ### Creating a ggplot
 
-Let's recreate this plot step-by-step.
+Let's recreate this plot step-by-step. Follow along by typing out and running this code yourself. (Don't get too frustrated when things don't run the first time - R is very picky about spelling. You'll get the hang of it!)
 
 With ggplot2, you begin a plot with the function `ggplot()`, defining a plot object that you then add **layers** to.
 The first argument of `ggplot()` is the dataset to use in the graph and so `ggplot(data = penguins)` creates an empty graph that is primed to display the `penguins` data, but since we haven't told it how to visualize it yet, for now it's empty.
