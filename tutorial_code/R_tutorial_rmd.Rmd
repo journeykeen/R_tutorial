@@ -27,7 +27,11 @@ setwd('C:/Users/IRRJL01/Dropbox/personal/IDDA/BEEIDDA/r textbook')
 ## Part 1: Introduction
 This was made so that students in the Minneapolis Fed's BEE Program have an introduction and some reference to data analysis with R, especially with graphing.
 
-You, the student, should follow along. I will be placing the exact code and output for these notes in this document, but you should produce the code yourself to verify that you get the same output. Along with this pdf document, you should also download the files “example_file.csv” and “percentiles_combined.csv” for your scripts to work. You will also need the directory you put them in (which, for now, should be in the same folder as this pdf you downloaded and are reading, as well as your R script you start to follow-along).
+You, the student, should follow along. I will be placing the exact code and output for these notes in this document, but you should produce the code yourself to verify that you get the same output. Along with this pdf document, you should also download the files “example_file.csv” and “percentiles_combined.csv” for your scripts to work. You will also need the directory you put them in (which, for now, should be in the same folder as this pdf you downloaded and are reading, as well as your R script you will start to follow-along). The "directory" is just the entire path 
+\[
+C:/Users/person/Desktop/folder\_1/folder\_2/data\_folder/
+\]
+but we might refer to the last folder in it, $/data\_folder/$, as the folder.
 
 Excel is nice because you can see the underlying data right in front of you when you perform any analysis with the data. This is in contrast to a lot of computer programs where the data needs to be "printed" out to see anything. R allows a little bit of both, where your programming that reads like a left-indented text with a lot of newline characters and data are like tabs in an internet browser. You can switch between them pretty easily. What makes R (and other statistical programming languages) better is that you can do a lot more with them and the analysis is more ``systematic.''
 
@@ -1474,7 +1478,7 @@ You have already seen examples of collecting vectors, naming them, and putting t
 You will almost never manually create a data table like how I did earlier, in order to create examples. The only time I ever do is to make small data with really weird cases to check my programming logic is correct (and to make these notes). You will typically be reading and writing to data stored on your computer, or, in more advanced cases, directly through the internet. Here I will only cover reading and writing to a "csv". It is basically an Excel file. When you load a csv on your computer it takes you to Excel. "csv" stands for "comma separated values". It just stores data as it is displayed in an Excel sheet, just the data in each cell is separated by a comma. In economics a lot of publicly available data is stored this way. It is probably the easiest and most universal way to store basic data, hence why we will be using it here. As your computing needs grow you will need to graduate from using csvs. But not today.
 
 Say you have the csv in your computer with the file name 
-$"C:/Users/person/Desktop/folder_1/folder_2/data_folder/file.csv"$
+\["C:/Users/person/Desktop/folder\_1/folder\_2/data\_folder/file.csv"\]
 The ".csv" at the end tells us it is a csv. We will load-in ("read") files of this type with fread, like
 ```{r fread_example, eval=FALSE}
 dir = "C:/Users/person/Desktop/folder_1/folder_2/data_folder/file.csv"
