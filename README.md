@@ -1,4 +1,4 @@
-# README for the IDDA BEE Program
+# README for the IDDA BEE Program (READ BEFORE CLICKING ELSEWHERE)
 
 This file describes the structure of the project. It is the first thing you should read.
 
