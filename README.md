@@ -20,4 +20,4 @@ Save it in your own personal `/data/` subfolder in your BEE folder. This file is
 ## Files
 
 - `how_to_download_R` shows you how to download R on Windows or Mac. This is the first thing to do.
-- `R_tutorial` is what you will read next. It shows what R looks like and explains the basics of R.
+- `R_tutorial` is what you will read next. It shows what R looks like and explains the basics of R. This is what you should download and open in your browser after downloading R and RStudio in the last dash.
