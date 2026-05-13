@@ -35,4 +35,4 @@ Go to this website and click the link on the right, 2. You will get an executibl
 
 ![My image](pictures/rstudio_folder_ss.png)
 
-After this search RStudio on your computer and open it. The "R_Tutorial" will guide you from there.
+After this search RStudio on your computer and open it. The "R_Tutorial" will guide you from there. See the README for how to download it.
