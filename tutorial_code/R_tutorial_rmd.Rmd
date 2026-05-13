@@ -74,7 +74,8 @@ The "console" section is how you run code one line at a time, rather than part o
 cat("[1] 11")
 ```
 
-You can do the same by typing in each "line" (which are marked by the `>`) and pressing enter. Note that output has the `[1]` in front. Now, this is a silly example. We can do $7+4$ in our head pretty easily: Don't give-in and use ChatGPT or Claude for that, even if it is a homework assignment and it is getting late. This is just to demonstrate how it works. We can just as well put much more complicated things in the console that are intermediate checks for something that we do not want in our actual script. When writing the script to create some example graphs for this text I at one point typed this into the console to look at what data transformations I was creating:
+You can do the same by typing in each "line" (which are marked by the `>`) and pressing enter. Note that output has the `[1]` in front. Now, this is a silly example. We can do $7+4$ in our head pretty easily.
+<!-- Don't give-in and use ChatGPT or Claude for that, even if it is a homework assignment and it is getting late.--> This is just to demonstrate how it works. We can just as well put much more complicated things in the console that are intermediate checks for something that we do not want in our actual script. <!-- When writing the script to create some example graphs for this text I at one point typed this into the console to look at what data transformations I was creating:
 
 ```{r console_lookup, eval=FALSE}
 #### Do NOT type this -- Example only ####
@@ -89,6 +90,7 @@ dt = fread(file_name)
 dt[year==1998 & group_var == "xall" & inc_var == "WS", .(level, samp, geo_var, geo_var_val, group_var_val,pctl50)]
 rm(dt)
 ```
+-->
 
 The last section is what I called "Plots and Help." The console is where data output goes, and this is where plotting and graphical output goes. If you know a command but want the specifics of it, you can also type `?command` to get a file that explains the command. If you want to be more vague (e.g. if you forgot the actual name of the command you want to use) then you can use two question marks: `??command_guess`. Yes, these helper things have mostly been replaced by AI. Sometimes they are quicker, though. You will rarely use the other tabs in this section and probably not at all in these two weeks.
 
