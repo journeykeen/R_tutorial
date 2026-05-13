@@ -104,6 +104,7 @@ install.packages("data.table")
 
 library(data.table)
 ```
+Depending upon which files you have downloaded, this will put some text in your console. That is fine, unless it is an error. You should be able to igore this. 
 
 The part `library()` is to actually load the package into your current R environment. Although you only need to install them once, you will need to put this at the top of every R script you have. 
 
