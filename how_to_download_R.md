@@ -21,7 +21,7 @@ You will need to click based upon your computer. Here is where you need to look:
 <!--
 # Lixux people:
 ------------ Fill-in here ---------------
---!>
+-->
 
 # When downloading:
 You will get to a screenshot like this after you choose some default options after clicking "Next" a few times:
