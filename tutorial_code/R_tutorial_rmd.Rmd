@@ -62,7 +62,7 @@ knitr::include_graphics("pictures/example_data.png")
 ```
 
 # Programs
-The "programs" section of Rstudio is where the programs can be viewed and edited and where data can be viewed. Unlike in Excel, data cannot be changed by clicking on the data and typing anything: It must be changed by an actual program (or in the "console" section, but ignore that for now). The R text earlier was a quick example. 
+The "programs" section of Rstudio is where the programs can be viewed and edited and where data can be viewed. It is where you "code". Unlike in Excel, data cannot be changed by clicking on the data and typing anything: It must be changed by an actual program (or in the "console" section, but ignore that for now). The R text earlier was a quick example. After editing, you save programs in this section (or "scripts") to your computer to save your work. It is like writing down your solutions to a homework problem so that you or someone else have the "code" to produce what you were working on earlier.
 
 # Environment
 The "environment" section shows which variables and tables you have created (and so are "in memory"). You can think of it as R keeping a log of the work you have done so you know what is loaded. In the annotated example it is empty. To view a data table you can just click on it and Rstudio will put it in as a tab in the programs section. You can also view data in the environment via the "console" section.
