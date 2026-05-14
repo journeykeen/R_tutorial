@@ -145,7 +145,8 @@ I also made an example of using `=` and `<-` for assignment. Again, they do the 
 length(vec_characters)
 ```
 
-To access the information in a vector, you can pass an "index" to the vector. The character vector has "A" at the first index, "B" at the second, and "word" at the third. 
+<!--To access the information in a vector, you can pass an "index" to the vector. The character vector has "A" at the first index, "B" at the second, and "word" at the third. -->
+You can access a specific value in a vector by giving R its position, called an **index**. For example, in `c("A", "B", "word")`, the first value is `"A"`, the second value is `"B"`, and the third value is `"word"`.
 
 ```{r vector_index}
 vec_characters[3]
