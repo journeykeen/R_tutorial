@@ -190,7 +190,7 @@ table[, .(
 )]
 ```
 
-We access the row where gender is "Female" in the vector `value` and divide it by where this vector is "Male". Yes, you can just look at it and give the answer (or give your favorite AI software the male and female value and ask it what the ratio is, if you must) easily here. If you wanted to do this directly with vectors instead of the table format you could have
+We access the row where gender is "Female" in the vector `value` and divide it by where this vector is "Male". Yes, you can just look at it and give the answer <!--(or give your favorite AI software the male and female value and ask it what the ratio is, if you must)--> easily here. If you wanted to do this directly with vectors instead of the table format you could have
 
 ```{r vector_ratio}
 gender = c("Male", "Female")
