@@ -1084,7 +1084,8 @@ Another way, which is particularly useful for categorical variables, is to split
 
 To facet your plot by a single variable, use `facet_wrap()`.
 The first argument of `facet_wrap()` is a formula[^data-visualize-3], which you create with `~` followed by a variable name.
-The variable that you pass to `facet_wrap()` should be categorical.
+<!-- The variable that you pass to `facet_wrap()` should be categorical. -->
+The variable you give R inside `facet_wrap()` should be categorical.
 
 [^data-visualize-3]: Here "formula" is the name of the thing created by `~`, not a synonym for "equation".
 
@@ -1546,7 +1547,8 @@ Note the comma: Rows are before the comma and columns are after, just like how w
 dt[3, 2]
 ```
 
-You will typically only print specific rows of the table to see the first row, to remind yourself of what the table looks like (yes, you will forget at times). Usually you will want to pass logical conditions to view specific rows you are concerned about when coding, like the group=="16" above. Likewise, you will probably never use the column indexing again. In fact, you should not. This might be my first time doing that since learning R; it was to show you that the data table is just a bunch of vectors with some fancy code in the background holding it together. 
+<!-- You will typically only print specific rows of the table to see the first row, to remind yourself of what the table looks like (yes, you will forget at times). Usually you will want to pass logical conditions to view specific rows you are concerned about when coding, like the group=="16" above. Likewise, you will probably never use the column indexing again. In fact, you should not. This might be my first time doing that since learning R; it was to show you that the data table is just a bunch of vectors with some fancy code in the background holding it together. --> 
+You will typically only print specific rows of the table to see the first row or to remind yourself of what the table looks like (yes, you will forget at times). Usually, you will want to give R logical conditions to view specific rows you are concerned about when coding, like the group=="16" above. Likewise, you will probably never use the column indexing again. In fact, you should not. This might be my first time doing that since learning R; it was to show you that the data table is just a bunch of vectors with some fancy code in the background holding it together.
 
 You will instead access the columns/variables by their names. Our second column is group (this is the main reason to print the first row with dt[1], to remind yourself what the column names are), and so instead of putting a 2 there we can put its name, like so:
 ```{r dt_group_column}
