@@ -154,7 +154,8 @@ vec_characters[3]
 
 This returns "word", since that is at the third index. 
 
-We can access the information in a vector in different ways than just the index of the information. In fact, using the exact index is rare. We typically want to access a vector where some condition is true and get the values there. We can pass a logical vector (so a vector filled with `TRUE`s and `FALSE`s) into a vector to get the information where the logical vector is true; that is, of the indices where the logical vector is true.
+<!-- We can access the information in a vector in different ways than just the index of the information. In fact, using the exact index is rare. We typically want to access a vector where some condition is true and get the values there. We can pass a logical vector (so a vector filled with `TRUE`s and `FALSE`s) into a vector to get the information where the logical vector is true; that is, of the indices where the logical vector is true. -->
+We can access the information in a vector in different ways than just using the position of each value. In fact, using the exact position is rare. We usually want to get values from a vector only when some condition is true. To do this, we can give R a logical vector, which is a vector filled with `TRUE`s and `FALSE`s. R then returns the values where the logical vector is `TRUE`.
 
 ```{r vector_logical_index}
 vec_characters[c(TRUE, FALSE, TRUE)]
