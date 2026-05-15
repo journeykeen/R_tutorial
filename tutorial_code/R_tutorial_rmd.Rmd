@@ -1235,12 +1235,12 @@ fwrite(dt_manip, paste0(dir, output_file))
 (If you are outputting into a different directory, say `dir_manip`, then use that above instead of `dir`. You will usually want to do this: Separate inputs and outputs. See the organization section above.) 
 
 The general pattern is that you should put your project's directory (I call it `dir`) at the top, then use `paste0(dir, file_name)` to create the entire file's location. You load it in with `fread`. Now, for real this time, we will be loading-in `example_file.csv` that you downloaded from GitHub. Replace the following `dir` with your directory you saved it in (you can copy-and-paste it by right-clicking on the folder itself):
-```{r dt_setup_ex, include=TRUE, echo=FALSE}
-dir = "C:/Users/IRJZK01/Desktop/R_tutorial/data/"
+```{r dt_setup_ex, eval=FALSE}
+dir = "C:/Users/person/Desktop/BEE/data/"
 dt = fread(paste0(dir, "example_data.csv"))
 ```
 
-```{r dt_setup, include=FALSE}
+```{r dt_setup, include=TRUE, echo=FALSE}
 ## Remark: For the kiddos I will make this a file they download, so they do not see how I created it, here.
 dt = data.table(
   category = c(rep("Gender", 6L), rep("Race", 9L), "Age"),
