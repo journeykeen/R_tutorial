@@ -1222,7 +1222,7 @@ Say you have the csv in your computer with the file name
 The .csv at the end tells us it is a csv. We will load-in ("read") files of this type with `fread`, like
 ```{r fread_example, eval=FALSE}
 #### Do NOT type this -- Example only ####
-dir = "C:/Users/person/Desktop/folder_1/folder_2/data_folder/file.csv"
+dir = "C:/Users/person/Desktop/folder_1/folder_2/data_folder/"
 dt = fread(paste0(dir, "file.csv"))
 ```
 We now have the data table `dt` in our environment. Say we did a bunch of manipulation to `dt` and end-up with the table `dt_manip`. We want to save it ("write" it) to the computer in the same directory, `dir`. We will use `fwrite`:
@@ -1230,6 +1230,14 @@ We now have the data table `dt` in our environment. Say we did a bunch of manipu
 #### Do NOT type this -- Example only ####
 output_file = "file_manipulated.csv"
 fwrite(dt_manip, paste0(dir, output_file))
+```
+
+(If you are outputting into a different directory, say `dir_manip`, then use that above instead of `dir`. You will usually want to do this: Separate inputs and outputs. See the organization section above.) 
+
+The general pattern is that you should put your project's directory (I call it `dir`) at the top, then use `paste0(dir, file_name)` to create the entire file's location. You load it in with `fread`. Now, for real this time, we will be loading-in `example_file.csv` that you downloaded from GitHub. Replace the following `dir` with your directory you saved it in (you can copy-and-paste it by right-clicking on the folder itself):
+```{r dt_setup_ex, include=TRUE, echo=FALSE}
+dir = "C:/Users/IRJZK01/Desktop/R_tutorial/data/"
+dt = fread(paste0(dir, "example_data.csv"))
 ```
 
 ```{r dt_setup, include=FALSE}
@@ -1245,8 +1253,6 @@ dt = data.table(
 )
 dt[, gender := ifelse(category == "Gender", group, NA_character_)]
 ```
-
-(If you are outputting into a different directory, say `dir_manip`, then use that above instead of `dir`. You will usually want to do this: Separate inputs and outputs. See the organization section above.) 
 
 ## Viewing Data
 In this section `dt` will denote an arbitrary data table. Previously we have used names like `example_data` and `table`. 
