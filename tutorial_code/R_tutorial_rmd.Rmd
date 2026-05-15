@@ -20,7 +20,7 @@ output:
 ```
 
 ```{r, echo = FALSE}
-setwd('C:/Users/IRRJL01/Dropbox/personal/IDDA/BEEIDDA/r textbook')
+setwd('C:/Users/richa/Dropbox/personal/IDDA/BEEIDDA/r textbook/')
 
 ```
 
@@ -1247,7 +1247,7 @@ dt[, gender := ifelse(category == "Gender", group, NA_character_)]
 (If you are outputting into a different directory, say dir_manip, then use that above instead of dir. You will usually want to do this: Separate inputs and outputs. See the organization section above.) 
 
 ## Viewing Data
-In this section dt will denote an arbitrary data table. Previously we have used names like example_data and table. 
+In this section `dt` will denote an arbitrary data table. Previously we have used names like `example_data` and `table`. 
 
 If you want to put the entire table in your programs tabs to view like an Excel sheet, then click the table in the environment. If your table is more than a few hundred rows or more than about twenty columns this will quickly become cumbersome, as you might, say, want to quickly look at row $100,000$ or the first fifteen rows where the variable age is $23$. This might not be in your table until row $100,001$, so you will not want to scroll down that far. Hence, we need to learn how to quickly view the part of the data we want. We will be using the scary console.
 
@@ -1335,7 +1335,9 @@ DT[, log_y := log(y)]
 
 DT
 ```
-Line 1 introduces variables z, w, u, v as vector operations. log_y applies log elementwise. The last two variables are special since they are not computed entry-wise; they are computed over the whole vector. Check equivalence:
+Once we create the table `DT` we create other variables with common operations. `z`, `w`, `u`, and `v` are the sum of, difference o, product of, and quotient of `x` and `y` as vectors, respectively. I say "as vectors" because these are performed entry-wise: Each row has `z` as the sum of that row's value of `x` and `y`, and the same goes for the other three variables. `log_y` looks a bit different, but it is conceptually the same. It is the natural logarithm function applied to each row's value of `y`. 
+
+The last two variables created are a bit special, since they are not computed entry-wise. The mean of `x` and variance of `z` are computed over the whole vector/variable, not just that row (as `x`+`y` is, for example). It is the same as computing the mean and variance over each variable as a vector, saving those values, and assigning every row that single value as we did with assigning ones before. You should check that this does the same: 
 ```{r DT_summary_cols}
 DT[, mean_x := mean(x)]
 DT[, var_z := var(z)]
@@ -1346,6 +1348,7 @@ var_z_value = var(DT[, z])
 DT[, ':='(mean_x=mean_x_value, var_z=var_z_value)]
 ```
 
+I do not print `DT` so you can check it. 
 ## Grouping Data
 Earlier we had a mysterious , by = year at the end of our dt call:
 ```{r dt_FM_ratio_again, eval=F}
@@ -1355,7 +1358,7 @@ dt[category=="Gender",
 ```
 This grouped our data together for each year.
 
-We do this all the time in data science: Group rows together by the year, or the month, or the gender, or the location, etc.
+We do this all the time in data science: Group rows together by the year, or the month, or the gender, or the location, etc. and create a new variable that is defined over each possible value you can group by. The possible values for `year` were $2010, 2011$, and $2012$, so it created `F\_M\_ratio` over each of these years. We do this particularly often when we want summary stats for each group: Get the average of *x* for each month; the average of *y* for each county; the variance of *z* for each possible *combination* of year, month, and county in our dataset. This last example notes that we can group by multiple variables at once. 
 
 ```{r DT_grouping_year}
 DT = data.table(
@@ -1370,14 +1373,21 @@ DT = data.table(
 DT[, mean_year_x := mean(x), by = year]
 ```
 
-We can also group by multiple variables:
+We took the mean of *x* just grouping by the year. That is, we did not consider that the month or county could vary within the year. But, we can with
+
 ```{r DT_grouping_multi}
 DT[, mean_year_month_x := mean(x), by = .(year, month)]
 DT[, mean_year_month_county_x := mean(x), by = .(year, month, county)]
 ```
 
+When grouping by multiple variables we list them like we did in Section $3.1$, with the dot and parenthesis (likewise, we can make it a vector of strings of the variable names, but this was here is quicker). Line $1$ groups by both year and month. Hence, we will take the average across every county in every possible *year* $\times$ *month* combination. Line $2$ groups by year, month, and county. Note that in this example there is only ever one value of *year* $\times$ *month*$\times$ *county*: There is never more than one row that has the same year, month, and county. Hence, the average will just be the value of *x* itself, as you should verify.
+
 ## Collapsing (Summarizing) Data
-To collapse data, drop :=:
+
+Everything you have seen thus far involves adding a new column to the table, with the `:=` operator (for potential comp. sci. people this really means the columns are added by reference). Doing so does not change anything already in the table. But sometimes we might not want that. For instance, in our last example, if we just wanted the annual mean of `x`, then using `:=` adds a column that could be redundant if we do not need this extra column for any other purpose. You will encounter this a lot, where you want some summary statistic(s), but it does not need to go in your main data. (In fact, cluttering your main data table with summary statistics that you do not need for future manipulation but only to view is actively discouraged.) 
+
+To do so in the simple version we just drop mention of the `:=`. 
+
 ```{r DT_collapse}
 DT[, mean(x), by = year]
 
@@ -1385,26 +1395,57 @@ DT[, .(mean_year_x = mean(x)), by = year]
 DT[, .(mean_x_year_county = mean(x)), by = .(year, county)]
 ```
 
+Line $1$ accomplishes what line $10$ did two examples ago in terms of the values it produces. You should check that they are the same. But, you will notice that there are now only two rows, the number of `year`s in the table. We did not use `:=`, so there was not a new column added, so any information (rows and columns) that are not the data we are manipulating to create summary statistics (`x`) and the variable we are grouping by and its levels (`year`) get dropped. In line $4$ here I group by year and county, so summary table will now have three columns: `year` and `county` that has every possible combination of them in the table, and `mean_x_year_county` that is the mean of `x` over the rows that match each combination. 
+
+In line $3$ I also introduced how you can name the variable you are summarizing. If you do not supply a name it will default to things like `V1`. Note that it is still inside the dot and parenthesis. This also applies to when we want to summarize multiple variables or in multiple ways over the same grouping:
+
 ```{r DT_multiple_summaries}
+# Add a variable y so we have multiple numeric variables
 DT[, y := 5:12]
 
 DT[, .(mean_year_x = mean(x), mean_year_y = mean(y)), by = year]
 DT[, .(mean_year_x = mean(x), var_year_x = var(x)), by = year]
 ```
 
-Optional:
+Optional: If a variable is constant within each combination of values of what you are grouping by, then you can include it in the summary stats by including it in the variables you are creating. For instance, if `code` is the same in every year, then you can write
+
 ```{r DT_code_constant, eval=FALSE}
 DT[, .(mean_year_x = mean(x), code), by = year]
 ```
 
-## Examples and Practice
-We load data:
+and still have `code` appear as a variable. Now, if `code` varies within any level of `year` (e.g. in $2024$ it has two possible values, $1$ and $2$), then our data will no longer collapse down into unique years of the table, as we have not supplied a way to summarize it. 
+
+# Examples and Practice
+
+Here we will load-in data that you will use as part of one of the BEE lectures. It has income percentiles for different demographic groups (age groups, race, foreign- or U.S.-born, and gender, as well as product variables thereof) in the United States for different income variables, in different states, and for some different underlying population samples. 
+
+We load up the data and look at the first row to see the variables and the type of data:
+
 ```{r pctls_read_firstrow}
 file_name = paste0(getwd(),"/data/percentiles_combined.csv")
 pctls = fread(file_name)
 
 pctls[1]
 ```
+
+(In your output, if your console section is sufficiently wide, then this should output on one line. Here it looks more messy than it normally is.)
+
+```{r commented_out, include=FALSE}
+if (F) {
+  # year | level | samp | inc_var | geo_var | geo_abb | 
+  # group_var | group_var_val | pctl | value | pce | value_real
+  #
+  # <int> | <char> | <char> | <char> | <char> | <char> |
+  # <char> | <char> | <num> | <num> | <num> | <num>
+  #
+  # 1998 | mafid | all_1040_mafid | WS | usst | 0 | 
+  # xaged | 16to24 | 10 | 6969 | 0.6856143 | 10164.61
+}
+```
+
+For our output we care about the "W-2 prime age working" sample, which corresponds to a `samp` of `"prime_age_working"`. The income variable, `inc_var` is `"TC"`, and we only want U.S.-level data, so we want `geo_var` to be `"usst"`. We also only want percentiles in $\{25,50,75,90,95,98,99,99.9\}$, so we can filter to that interval (first you should check that we can, indeed, take it as an interval). We are comparing Black male and Black female percentiles to White male percentiles, so we also want to filter to `group_var_vals` of `"NH_Black_Male"`, `"NH_Black_Female"`, and `"NH_White_Male"`. By comparison we mean take the ratio of the Black percentiles to the White ones, so for each percentile in each year we want to take the ratio of the two. Hence, we will be grouping by `year` and `pctl`. 
+
+I subset the entire data `pctls` to smaller data, `data`, so then we only have the rows we want. I then split the data into two again, the male-male comparison and the female-male comparison. Here is the code:
 
 ```{r pctls_filter_ratios, eval=TRUE}
 data = pctls[samp == "prime_age_working_w2" & inc_var == "TC" & group_var=="xredXsex" &
@@ -1419,7 +1460,8 @@ data_female = data[group_var_val%in%c("NH_White_Male","NH_Black_Female"),
                    by = .(year, pctl)]
 ```
 
-Plotting:
+Graphing for most of our basic purposes in two weeks will be easy. It is also easy to try to spend too much time making plots look trivially nicer. Try not to do that for what are rough drafts. Here is the code for our first graph:
+
 ```{r male_plot}
 library(ggplot2)
 
@@ -1429,6 +1471,8 @@ ggplot(data_male, aes(x=year, y=ratio, color=pctl, group=pctl)) +
   theme_minimal()
 ```
 
+And here is the second.
+
 ```{r female_plot}
 data_female[, pctl := as.factor(pctl)]
 ggplot(data_female, aes(x=year, y=ratio, color=pctl)) +
@@ -1436,10 +1480,16 @@ ggplot(data_female, aes(x=year, y=ratio, color=pctl)) +
   theme_minimal()
 ```
 
-General syntax:
+We needed to put the variable `pctl` as a "factor" for reasons you should not worry about now. But, any time you have "groups" of something (so to create this you grouped by it, and in the plotting you made the colors group by it), you should do this before plotting. The general syntax is
+
 ```{r plotting, eval=FALSE}
 ggplot(dt, aex(x = x_variable, y = y_variable, colour = group_variable, group = group_variable)) +
   geom_point() + geom_line() +
   theme_minimal()
 ```
 
+Our x variable was `year`, our y variable was `ratio`, and we wanted our data to connect the dots to form a line based upon `pctl`, so we told R to color by it and group them together.
+
+$$
+\textrm{... Examples to be added ...}
+$$
