@@ -1208,7 +1208,7 @@ We started with the basic idea that underpins ggplot2: a visualization is a mapp
 You then learned about increasing the complexity and improving the presentation of your plots layer-by-layer.
 You also learned about commonly used plots for visualizing the distribution of a single variable as well as for visualizing relationships between two or more variables, by leveraging additional aesthetic mappings and/or splitting your plot into small multiples using faceting.
 
-# Part 4: Data Tables
+# Part 3: Data Tables
 
 *BEE instructions: If you are familiar with working with R and know how to manipulate your data, feel free to skip this section and go straight to working on your project. If not, follow along for the next section.*
 
